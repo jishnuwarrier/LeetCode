@@ -11,24 +11,13 @@ public:
         }
         
         for(auto q: queries){
-            if(nums[q[1]]%2 == 0){
-                if(q[0]%2 == 0){
-                    evensum += q[0];
-                }
-                else{
-                    evensum -= nums[q[1]];
-                }
-                
-                nums[q[1]] += q[0];
-            }
-            
-            else{
-                nums[q[1]] += q[0];
-                
-                if(q[0]%2 != 0){
-                    evensum += nums[q[1]];
-                }
-            }
+            if(nums[q[1]]%2 == 0)
+                evensum -= nums[q[1]];
+        
+            nums[q[1]] += q[0];
+
+            if(nums[q[1]]%2 == 0)
+                evensum += nums[q[1]];
             
             ans.push_back(evensum);
         }
