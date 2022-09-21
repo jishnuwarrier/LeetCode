@@ -2,19 +2,18 @@ class Solution {
 public:
     void sortColors(vector<int>& nums) {
         
-        vector<int> freq(3, 0);
+        int l = 0,mid = 0, r = nums.size()-1;
         
-        for(auto num: nums)
-            freq[num]++;
-        
-        for(int i=0; i<freq[0]; i++)
-            nums[i] = 0;
-        
-        for(int i=freq[0]; i<freq[0]+freq[1]; i++)
-            nums[i] = 1;
-
-        for(int i=freq[0]+freq[1]; i<freq[0]+freq[1]+freq[2]; i++)
-            nums[i] = 2;
+        while(mid <= r){
+            if(nums[mid] == 0)
+                swap(nums[mid++], nums[l++]);
+            
+            else if(nums[mid] == 1)
+                mid++;
+            
+            else
+                swap(nums[mid], nums[r--]);
+        }
         
     }
 };
