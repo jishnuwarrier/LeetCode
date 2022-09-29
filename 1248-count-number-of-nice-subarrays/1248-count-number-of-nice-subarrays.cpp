@@ -9,10 +9,10 @@ public:
         
         int sum = 0, ans = 0;
         
-        for(int i=0; i<nums.size(); i++){
-            nums[i] = nums[i]%2;
+        for(auto num: nums){
+            num = num%2;
             
-            sum += nums[i];
+            sum += num;
             map[sum]++;
             
             ans += map[sum - k];
