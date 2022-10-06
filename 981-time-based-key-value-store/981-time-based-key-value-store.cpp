@@ -14,16 +14,16 @@ public:
         if(map[key].size() == 0)
             return "";
         
-        int l = 0, r = map[key].size(), mid;
+        int l = 0, r = map[key].size()-1, mid;
         string ans;
         
-        while(l<r){
+        while(l<=r){
             mid = (l+r)/2;
             if(map[key][mid].first == timestamp)
                 return map[key][mid].second;
             
             if(map[key][mid].first > timestamp)
-                r=mid;
+                r=mid-1;
             
             else{
                 ans = map[key][mid].second;
