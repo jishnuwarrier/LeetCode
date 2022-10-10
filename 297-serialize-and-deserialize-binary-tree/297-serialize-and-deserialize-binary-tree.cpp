@@ -12,7 +12,7 @@ public:
     
     void preorder(TreeNode* root, string &code){
         if(root == NULL){
-            code += 'n';
+            code += "n,";
             return;
         }
         
@@ -25,10 +25,11 @@ public:
     
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
-        if(root == NULL)
-            return "n,";
+        string code;
+        preorder(root, code);
         
-        return to_string(root->val)+','+serialize(root->left)+serialize(root->right);
+        code.pop_back();
+        return code;
     }
 
     TreeNode* helper(queue<string> &q){
