@@ -3,8 +3,8 @@ public:
     bool increasingTriplet(vector<int>& nums) {
         
         int n = nums.size();
-        vector<int> pre(n, INT_MAX);
-        vector<int> post(n, INT_MIN);
+        vector<int> pre(n);
+        vector<int> post(n);
         
         pre[0] = INT_MAX;
         post[n-1] = INT_MIN;
