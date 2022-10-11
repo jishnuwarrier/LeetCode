@@ -6,6 +6,9 @@ public:
         vector<int> pre(n, INT_MAX);
         vector<int> post(n, INT_MIN);
         
+        pre[0] = INT_MAX;
+        post[n-1] = INT_MIN;
+        
         for(int i=1; i<n; i++){
             pre[i] = min(pre[i-1], nums[i-1]);
             post[n-i-1] = max(post[n-i], nums[n-i]);
