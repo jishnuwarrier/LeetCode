@@ -2,7 +2,7 @@ class Solution {
 public:
     int ans = 0;
     
-    void dfs(vector<string>&nums, set<int>s, int i, int length){
+    void dfs(vector<string>&nums, unordered_set<int>s, int i, int length){
         
         ans = max(ans, length);
         if(i == nums.size())
@@ -27,7 +27,7 @@ public:
     
     int maxLength(vector<string>& nums) {
          
-        set<int> s;
+        unordered_set<int> s;
         dfs(nums, s, 0, 0);
         return ans;
     }
