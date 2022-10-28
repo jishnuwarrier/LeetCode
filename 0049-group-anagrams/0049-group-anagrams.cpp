@@ -11,12 +11,8 @@ public:
         map[s].push_back(str);
     }
         
-    for(auto it: map){
-        vector<string> v;
-        for(auto str: it.second)
-            v.push_back(str);
-        ans.push_back(v);
-    }
+    for(auto it: map)
+        ans.push_back(it.second);
         
     return ans;
         
