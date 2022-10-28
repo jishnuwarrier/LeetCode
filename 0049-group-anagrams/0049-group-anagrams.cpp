@@ -5,14 +5,15 @@ public:
     vector<vector<string>> ans;
     unordered_map<string, vector<string>> map;
         
-    for(auto str: strs){
+    for(auto const &str: strs){
         string s = str;
         sort(s.begin(), s.end());
         map[s].push_back(str);
     }
-        
+    
+    ans.reserve(map.size());
     for(auto it: map)
-        ans.push_back(it.second);
+        ans.push_back(move(it.second));
         
     return ans;
         
