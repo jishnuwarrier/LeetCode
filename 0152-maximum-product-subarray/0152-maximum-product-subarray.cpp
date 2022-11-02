@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         
-        int ans = (long)*max_element(nums.begin(), nums.end());
+        int ans = INT_MIN;
         int n = nums.size();
         int curmax = 1, curmin = 1;
         
@@ -10,6 +10,7 @@ public:
         for(auto num: nums){
             
             if(num == 0){
+                ans = max(ans, 0);
                 curmax = curmin = 1;
                 continue;
             }
