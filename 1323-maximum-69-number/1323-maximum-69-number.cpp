@@ -2,15 +2,15 @@ class Solution {
 public:
     int maximum69Number (int num) {
 
-        for(int i=3; i>=0; i--){
-            int temp = 10*(int)(num/(pow(10,i+1))); 
-            int digit = (num/pow(10, i) - 10*(int)(num/(pow(10,i+1))));
-            if(digit == 6){
-                num += 3*pow(10,i);
-                return num;
+        string str = to_string(num);
+        
+        for(int i=0; i<str.size(); i++){
+            if(str[i] == '6'){
+                str[i] = '9';
+                return stoi(str);
             }
         }
         
-        return num;
+        return stoi(str);
     }
 };
