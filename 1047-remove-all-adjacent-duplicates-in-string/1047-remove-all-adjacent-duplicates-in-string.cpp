@@ -8,7 +8,7 @@ public:
             if(s.size()==0 || ch!=s.top())
                 s.push(ch);
             
-            else if(ch == s.top())
+            else
                 s.pop();
         }
         
