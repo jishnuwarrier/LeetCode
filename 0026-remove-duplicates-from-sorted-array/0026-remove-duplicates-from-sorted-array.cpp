@@ -2,11 +2,26 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         
-        set<int> s;
-        for(auto num: nums)
-            s.insert(num);
+        int dup=0;
+        int n = nums.size();
+        for(int i=0; i<n-1; i++){
+            if(nums[i] == nums[i+1])
+                nums[i] = INT_MIN,
+                dup++;
+        }
         
-        nums = vector<int>(s.begin(), s.end());
-        return s.size();        
+        int size = n-dup;
+        
+        for(int i=0; i<size; i++){
+            if(nums[i] == INT_MIN){
+                int j = i+1;
+                while(j<n && nums[j]==INT_MIN)
+                    j++;
+                
+                swap(nums[i], nums[j]);
+            }
+        }
+        
+        return size;
     }
 };
