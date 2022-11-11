@@ -18,7 +18,9 @@ public:
                 while(j<n && nums[j]==INT_MIN)
                     j++;
                 
-                swap(nums[i], nums[j]);
+                auto temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
             }
         }
         
