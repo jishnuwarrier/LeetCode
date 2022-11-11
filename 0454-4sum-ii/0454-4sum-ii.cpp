@@ -5,7 +5,7 @@ public:
         int ans = 0;
         int n = nums1.size();
         
-        map<int, int> map;
+        unordered_map<int, int> map;
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
                 map[nums1[i]+nums2[j]]++;
