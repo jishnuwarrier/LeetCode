@@ -20,7 +20,7 @@ public:
     Node* copyRandomList(Node* head) {
         
         if(!head) return NULL;
-        map<Node*, Node*> map;
+        unordered_map<Node*, Node*> map;
         map[head] = new Node(head->val);
         
         for(Node* curr=head; curr->next; curr=curr->next){
