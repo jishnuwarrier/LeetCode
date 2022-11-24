@@ -1,6 +1,5 @@
 class Solution {
 public:
-    vector<vector<bool>> visited;
     int m, n;
     
     bool dfs(vector<vector<char>>& board, string word, int pos, int i, int j){
@@ -8,21 +7,19 @@ public:
         if(pos == word.size())
             return true;
         
-        if(i<0 || j<0 || i==m || j==n || word[pos] != board[i][j] || visited[i][j] == true)
+        if(i<0 || j<0 || i==m || j==n || word[pos] != board[i][j] || board[i][j] == '0')
             return false;
  
-        visited[i][j] = true;
+        board[i][j] = '0';
         bool ret =  (dfs(board, word, pos+1, i+1, j) || dfs(board, word, pos+1, i-1, j) || dfs(board, word, pos+1, i, j-1) || dfs(board, word, pos+1, i, j+1));
-        visited[i][j] = false;
         
+        board[i][j] = word[pos];
         return ret;
     }
     
     bool exist(vector<vector<char>>& board, string word) {
         
-        m = board.size(), n = board[0].size(); 
-        visited = vector<vector<bool>>(m, vector<bool>(n, false));
-        
+        m = board.size(), n = board[0].size();         
         bool ans = false;
         
         for(int i=0; i<m; i++){
