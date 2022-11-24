@@ -2,7 +2,7 @@ class Solution {
 public:
     int m, n;
     
-    bool dfs(vector<vector<char>>& board, string word, int pos, int i, int j){
+    bool dfs(vector<vector<char>>& board, string &word, int pos, int i, int j){
         
         if(pos == word.size())
             return true;
