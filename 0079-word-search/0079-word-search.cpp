@@ -29,9 +29,11 @@ public:
             for(int j=0; j<n; j++){
                 if(word[0] == board[i][j])
                    ans = ans || dfs(board, word, 0, i, j);
+                
+                if(ans) return ans;
             }
         }
         
-        return ans;
+        return false;
     }
 };
