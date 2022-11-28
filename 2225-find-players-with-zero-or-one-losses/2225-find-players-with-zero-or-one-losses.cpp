@@ -2,32 +2,25 @@ class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
         
-        unordered_set<int> losers;
-        unordered_set<int> winners;
-        unordered_set<int> oneloss;
+        unordered_map<int, pair<int, int>> map;
+        vector<vector<int>> ans {{},{}};
         
         for(auto match: matches){
-                        
-            if(winners.find(match[0]) == winners.end() && losers.find(match[0]) == losers.end() && oneloss.find(match[0]) == oneloss.end())
-                winners.insert(match[0]);
-            
-            if(winners.find(match[1]) != winners.end())
-                winners.erase(match[1]);
-            
-            if(oneloss.find(match[1]) != oneloss.end()){
-                oneloss.erase(oneloss.find(match[1]));
-                losers.insert(match[1]);
-            }            
-            
-            if(oneloss.find(match[1]) == oneloss.end() && losers.find(match[1]) == losers.end())
-                oneloss.insert(match[1]);
+            map[match[0]].first++;
+            map[match[1]].second++;
         }
-    
-        vector<vector<int>> ans;
-        ans.push_back(vector<int> (winners.begin(), winners.end()));
-        ans.push_back(vector<int> (oneloss.begin(), oneloss.end()));
+        
+        for(auto it: map){
+            if(it.second.second == 0)
+                ans[0].push_back(it.first);
+            
+            if(it.second.second == 1)
+                ans[1].push_back(it.first);
+        }
+        
         sort(ans[0].begin(), ans[0].end());
         sort(ans[1].begin(), ans[1].end());
+        
         return ans;
     }
 };
