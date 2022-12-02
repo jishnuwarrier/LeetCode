@@ -6,7 +6,7 @@ public:
         
         int n = word1.size();
         
-        set<char> s1, s2;
+        unordered_set<char> s1, s2;
         vector<int> freq1(26, 0);
         vector<int> freq2(26, 0);
         
