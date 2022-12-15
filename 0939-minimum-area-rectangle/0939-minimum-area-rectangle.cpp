@@ -13,13 +13,10 @@ public:
             if(it1.second.size()>=2){
                 for(auto it2: xmap){
                     if(it2.second.size()>=2 && it1!=it2){
-                        unordered_set<int> s1 = it1.second;
-                        unordered_set<int> s2 = it2.second;
-
                         vector<int> common;
 
-                        for(auto y: s1){
-                            if(s2.find(y) != s2.end())
+                        for(auto y: it1.second){
+                            if(it2.second.find(y) != it2.second.end())
                                 common.push_back(y);
                         }
 
